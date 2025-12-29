@@ -1,0 +1,3 @@
+[submodule "git_study_sub"]
+	path = git_study_sub
+	url = https://github.com/piporica/git_study_sub.git
