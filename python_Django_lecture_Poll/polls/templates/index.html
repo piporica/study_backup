@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>질문들</h1>
+    <!-- index 함수에서 질문 목록을 줌-> 출력!-->
+    <!-- Question class의 객체 3개를 생성 : 그 3개를 list 안에 넣어서 받음 -->
+    <!-- 템플릿 태그....로직 : { % % } / 값 { {... -->
+    {% if latest_question_list %}
+    <ul>
+        {% for q in latest_question_list %}
+            <li><a href="/polls/{{q.id}}">{{q.question_text}}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>출력할 투표 목록이 존재하지 않습니다!</p>
+    {% endif %}
+
+</body>
+</html>
