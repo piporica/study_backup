@@ -4,3 +4,5 @@
 
 - 얄코의 제대로 파는 Git & GitHub
 - django
+- 코세라 tensorflow 강의
+- 우테코 프리코스 관련
