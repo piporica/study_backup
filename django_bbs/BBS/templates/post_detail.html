@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{post.title}}</title>
+</head>
+<body>
+
+<h1>{{post.title}}</h1>
+<h4>작성자 : {{post.author}} | 작성날짜 : {{post.date|date:'y년 m월 d일'}} | 조회수 : {{post.views}} | 좋아요:{{post.likes}}/싫어요:{{post.dislikes}} | </h4>
+<div><textarea cols="122" rows="20" name="content" disabled >{{post.contents}}
+</textarea></div>
+
+<br>
+
+<form action="{% url 'bbs:like' post.id %}" method="POST">
+    {% csrf_token %}
+<input type="submit" name="like" value="좋아요"><input type="submit" name="like" value="싫어요"><br>
+</form>
+
+<h4>comments</h4>
+<form action="{% url 'bbs:comment_write' post.id %}" method="POST">
+    {% csrf_token %}
+    작성자 : <textarea cols="30" rows="1" name="a"></textarea> <br>
+    내용 : &nbsp&nbsp <textarea cols="80" rows="5" name="c"></textarea>
+    <input type="submit" value="댓글작성!">
+</form>
+
+<br>
+{% for c in comments%}
+<div>
+    <h4>{{forloop.counter}} / {{c.author}}</h4>
+    <p>{{c.contents}}</p>
+</div>
+{% endfor %}
+
+</body>
+</html>
